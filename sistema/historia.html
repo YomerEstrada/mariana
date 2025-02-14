@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra Historia</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sevillana&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Botón para abrir el menú -->
+    <button id="toggleSidebar" class="toggle-btn">&#9776;</button>
+
+    <!-- Menú lateral -->
+    <div id="sidebar">
+        <div class="p-3 text-center">
+            <div class="d-block align-items-center">
+                <img src="../img/foto.jpg" alt="Perfil" class="rounded-circle me-2" width="120" height="120">
+                <h4 class="mb-0">Mariana Yumara Rojas Marengo</h4>
+            </div>
+        </div>
+        <ul class="nav flex-column mt-3">
+            <li class="nav-item"><a href="principal.html" class="nav-link text-white">🏠 Inicio</a></li>
+            <li class="nav-item"><a href="historia.html" class="nav-link text-white">📖 Nuestra Historia</a></li>
+            <li class="nav-item"><a href="galeria.html" class="nav-link text-white">🖼️ Galeria</a></li>
+            <li class="nav-item"><a href="cartas.html" class="nav-link text-white">💌 Cartas</a></li>
+        </ul>
+    </div>
+    
+    <!-- Contenido principal -->
+    <div id="content">
+        <h1>🌹 Nuestra Historia 🌹</h1>
+        <p>Nuestra historia contada en pequeños fragmentos de código, donde cada línea representa un recuerdo especial y cada error nos enseñó a ser más fuertes.❤️💻</p>
+        <br><br>
+        <p>Haz clic en la fecha que quieras y descifra un recuerdo especial almacenado en nuestra memoria. 📝💖</p>
+        
+        <!-- Calendario -->
+        <input type="date" id="calendar">
+        
+        <!-- Sección para mostrar la historia -->
+        <div id="history">
+            <h2 id="history-title"></h2>
+            <p id="history-text"></p>
+            <img id="history-image" class="history-image" src="" alt="">
+        </div>
+        
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            const historyData = {
+                "2025-01-04": {
+                    title: "🎉🌟 Una Noche Inolvidable en Marabamba 🕺💃",
+                    text: "Ese día fui a buscarte a tu trabajo porque no respondías, y claro, se te habían acabado las megas 😅. Cuando llegué, te propuse ir a Marabamba y sin pensarlo dos veces, dijiste ¡Vamos! 🤩. Al llegar, te presenté a mi familia como 'mi amiga' para que no molestaran demasiado 😆, pero la verdad es que desde el primer momento todo se sintió especial. Bailamos 💃🕺, nos divertimos y, aunque tomé demasiado 🍻🤣, traté de que tú no lo hicieras tanto.",
+                    image: "../img/IMG_20250104_100929.jpg"
+                    
+                },
+                "2025-01-09": {
+                    title: "🥳🎂 Tu Cumpleaños 🎂🥳",
+                    text: "🎂 Aunque no pude estar presente en tu cumpleaños, quiero que sepas que siempre estoy apoyándote en cada paso que das. Sé cuánto esfuerzo pones en tus estudios y lo orgulloso que me siento de verte avanzar en tu camino como futura maestra 📚🍎. Cada día demuestras tu dedicación y amor por lo que haces, y sé que lograrás todo lo que te propongas. Me hubiera encantado celebrar contigo, verte sonreír y abrazarte fuerte en tu día especial 🤗🎁. Pero aunque la distancia nos separó en ese momento, mi cariño, admiración y apoyo siempre están contigo. Estoy seguro de que fue un día hermoso, rodeada de personas que te quieren y valoran tanto como yo.",
+                    image: "../img/1000037581.jpg"
+                },
+                "2025-02-04": {
+                    title: "🌍✨ Nuestro Primer Viaje ✨🌍",
+                    text: "Fuimos a El Arca de Max, un paseo que quedó grabado en mi memoria. Primero, cruzamos el puente colgante, sintiendo la emoción de cada paso mientras el viento nos rodeaba 🌉✨. Luego, subimos hasta la gran estatua, disfrutando la vista panorámica de todo el lugar, un momento perfecto para fotos y risas 📸😊. Al bajar, entramos a ver a los animales 🦙🐐. Caminamos por el lugar, observando cada especie y riéndonos de algunas de sus ocurrencias. Fue un día tranquilo, pero especial, disfrutando el momento y, lo mejor de todo, juntos. ❤️",
+                    image: "../img/IMG_20250204_155629.jpg"
+                },  
+            };
+            
+
+            $('#calendar').on('change', function () {
+                const selectedDate = $(this).val();
+                if (historyData[selectedDate]) {
+                    $('#history-title').text(historyData[selectedDate].title);
+                    $('#history-text').text(historyData[selectedDate].text);
+                    $('#history-image').attr('src', historyData[selectedDate].image);
+                    $('#history').show();
+                } else {
+                    $('#history').hide();
+                }
+            });
+
+            $('#toggleSidebar').click(function (event) {
+                event.stopPropagation();
+                $('#sidebar').toggleClass('active');
+                $('#toggleSidebar').toggle();
+            });
+    
+            $(document).click(function (event) {
+                if (!$(event.target).closest('#sidebar, #toggleSidebar').length) {
+                    $('#sidebar').removeClass('active');
+                    $('#toggleSidebar').show();
+                }
+            });
+
+                // Generar corazones flotantes
+            function createHeart() {
+                const heart = $('<div class="heart">❤️</div>');
+                const randomX = Math.random() * $(window).width();
+                heart.css({ left: randomX + 'px', bottom: '-20px' });
+                $('body').append(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 5000);
+            }
+
+            setInterval(createHeart, 500);
+        });
+    </script>
+
+<script src="datos.js"></script>
+
+    
+<audio id="backgroundMusic" autoplay loop style="display:none;">
+<source src="../img/ytapi.org - Heredero - Coqueta.mp3" type="audio/mpeg">
+Tu navegador no soporta el audio HTML5.
+
+
+</body>
+</html>

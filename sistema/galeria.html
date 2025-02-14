@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra Galeria</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sevillana&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Botón para abrir el menú -->
+    <button id="toggleSidebar" class="toggle-btn">&#9776;</button>
+
+    <!-- Menú lateral -->
+    <div id="sidebar">
+        <div class="p-3 text-center">
+            <div class="d-block align-items-center">
+                <img src="../img/foto.jpg" alt="Perfil" class="rounded-circle me-2" width="120" height="120">
+                <h4 class="mb-0">Mariana Yumara Rojas Marengo</h4>
+            </div>
+        </div>
+        <ul class="nav flex-column mt-3">
+            <li class="nav-item"><a href="principal.html" class="nav-link text-white">🏠 Inicio</a></li>
+            <li class="nav-item"><a href="historia.html" class="nav-link text-white">📖 Nuestra Historia</a></li>
+            <li class="nav-item"><a href="galeria.html" class="nav-link text-white">🖼️ Galeria</a></li>
+            <li class="nav-item"><a href="cartas.html" class="nav-link text-white">💌 Cartas</a></li>
+        </ul>
+    </div>
+    
+
+    <!-- Contenido principal -->
+    <div id="content">
+        <div class="container ">
+            <h1>📸 Nuestra Galería de Recuerdos</h1>
+            <p>Revive nuestros mejores momentos a través de imágenes que cuentan nuestra historia. 📸✨❤️</p>
+            
+            <ul class="nav nav-pills mb-3 justify-content-center" id="album-tabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="viajes-tab" data-bs-toggle="pill" data-bs-target="#viajes" role="tab">✈️ Viajes</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="momentos-tab" data-bs-toggle="pill" data-bs-target="#momentos" role="tab">🎉 Momentos Especiales</button>
+                </li>
+                
+            </ul>
+            
+            <div class="tab-content" id="album-content">
+                <div class="tab-pane fade show active" id="viajes" role="tabpanel">
+                    <div class="row gallery">
+                        <div class="col-md-4"><img src="../img/IMG_20250204_120125.jpg" alt="El Puente y Nuestra Gran Hazaña 😆🌉❤️" class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal" data-desc="Nos subimos al puente colgante con toda la emoción, pero a medida que avanzábamos, el vértigo nos ganó 😅🌉. No llegamos ni a la mitad cuando decidimos regresar, entre risas nerviosas y bromas sobre quién tenía más miedo 😂. Nos detuvimos un momento, intentando calmar los nervios mientras el puente se movía con el viento 🌬️, pero al final, preferimos no arriesgarnos y volvimos sobre nuestros pasos. Aunque no lo cruzamos, nos quedamos con la risa y la adrenalina del momento 😂. Tal vez algún día lo intentemos de nuevo, con más valor… o simplemente aceptemos que hasta la mitad ya fue una gran hazaña 😆❤️."></div>
+                        <div class="col-md-4"><img src="../img/IMG_20250204_155629.jpg" alt="Un Momento Simple, pero Inolvidable 🍓🌄❤️" class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal" data-desc="Subimos hasta la estatua, disfrutando del paisaje y el aire fresco 🌿🌄. Al llegar, encontramos el lugar perfecto según yo 😂😂 para sentarnos y, con paciencia (y mucha hambre 😂), preparamos nuestra ensalada de frutas 🍓🍍🍌. Entre risas, bromas y algún que otro intento fallido de cortar las frutas sin que se nos cayeran, todo se hizo más especial. Compartimos cada bocado mientras contemplábamos la vista del paisaje de Arca de Max, sintiendo que ese momento, por simple que fuera, se quedaría grabado en nuestra memoria. Estar ahí contigo hizo que todo valiera la pena ❤️."></div>
+                        <div class="col-md-4"><img src="../img/IMG_20250204_163005.jpg" alt="Un Encuentro Inolvidable con la Naturaleza 🦌✨" class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal" data-desc="En este momento especial, nos detuvimos a conocer a este amiguito curioso que se acercó con ternura 🦌✨. A través de la malla, extendimos nuestras manos y, con un poco de duda y emoción, sentimos su suave hocico mientras nos olfateaba en busca de un pequeño bocado. Fue un instante simple, pero lleno de magia: la conexión con la naturaleza, la risa compartida y la alegría de descubrir juntos cada rincón del lugar. Pequeños momentos como este son los que hacen que cada aventura contigo sea inolvidable ❤️."></div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="momentos" role="tabpanel">
+                    <div class="row gallery">
+                        <div class="col-md-4"><img src="../img/IMG_20250104_100929.jpg" alt="🎉💃 Una Fiesta Inolvidable en Marabamba 🕺🎊" class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal" data-desc="Ese día fui a buscarte a tu trabajo porque no respondías, y claro, se te habían acabado las megas 😅. Cuando llegué, te propuse ir a Marabamba y sin pensarlo dos veces, dijiste ¡Vamos! 🤩. Al llegar, te presenté a mi familia como 'mi amiga' para que no molestaran demasiado 😆, pero la verdad es que desde el primer momento todo se sintió especial. Bailamos 💃🕺, nos divertimos y, aunque tomé demasiado 🍻🤣, traté de que tú no lo hicieras tanto. Pero lo mejor vino después… cuando mi tía, entre risas y bromas, dijo: 'Si son pareja, ¡bésense!' 😳💕. Nos besamos normal, pero ella dijo: ¡eso es beso con lengua! 😅🔥. Fue un momento de esos que no se olvidan jamás."></div>
+                        <div class="col-md-4"><img src="../img/1000037581.jpg" alt="🥳🎂 Tu Cumpleaños 🎂🥳" class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal" data-desc="🎂 Aunque no pude estar presente en tu cumpleaños, quiero que sepas que siempre estoy apoyándote en cada paso que das. Sé cuánto esfuerzo pones en tus estudios y lo orgulloso que me siento de verte avanzar en tu camino como futura maestra 📚🍎. Cada día demuestras tu dedicación y amor por lo que haces, y sé que lograrás todo lo que te propongas. Me hubiera encantado celebrar contigo, verte sonreír y abrazarte fuerte en tu día especial 🤗🎁. Pero aunque la distancia nos separó en ese momento, mi cariño, admiración y apoyo siempre están contigo. Estoy seguro de que fue un día hermoso, rodeada de personas que te quieren y valoran tanto como yo. Espero poder compensarlo pronto, porque alguien tan increíble como tú merece ser celebrada siempre. 🎊💕🥂"></div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    
+        <!-- Modal de imagen -->
+        <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="imageTitle"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <img id="modalImage" class="img-fluid">
+                        <p id="imageDescription" class="mt-2 text-muted"></p> <!-- Descripción agregada aquí -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Función para alternar el menú y ocultar el botón
+            $('#toggleSidebar').click(function (event) {
+                event.stopPropagation(); // Evita que el clic se propague al body
+                $('#sidebar').toggleClass('active');
+                $('#toggleSidebar').toggle(); // Oculta el botón cuando se abre el menú
+            });
+    
+            // Cerrar el menú si se hace clic fuera de él y volver a mostrar el botón
+            $(document).click(function (event) {
+                if (!$(event.target).closest('#sidebar, #toggleSidebar').length) {
+                    $('#sidebar').removeClass('active');
+                    $('#toggleSidebar').show(); // Muestra el botón cuando se cierra el menú
+                }
+            });
+            
+                // Generar corazones flotantes
+                function createHeart() {
+                const heart = $('<div class="heart">❤️</div>');
+                const randomX = Math.random() * $(window).width();
+                heart.css({ left: randomX + 'px', bottom: '-20px' });
+                $('body').append(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 5000);
+            }
+
+            setInterval(createHeart, 500);
+        });
+    </script>
+
+<script>
+    $(document).ready(function() {
+        $('.gallery img').click(function() {
+            $('#modalImage').attr('src', $(this).attr('src'));
+            $('#imageTitle').text($(this).attr('alt'));
+            $('#imageDescription').text($(this).data('desc')); // Agregando la descripción al modal
+        });
+    });
+</script>
+
+<script src="datos.js"></script>
+
+    
+    <audio id="backgroundMusic" autoplay loop style="display:none;">
+    <source src="../img/ytapi.org - Heredero - Coqueta.mp3" type="audio/mpeg">
+    Tu navegador no soporta el audio HTML5.
+    
+</body>
+</html>

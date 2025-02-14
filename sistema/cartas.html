@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartas que une</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sevillana&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <button id="toggleSidebar" class="toggle-btn">&#9776;</button>
+
+    <div id="sidebar">
+        <div class="p-3 text-center">
+            <div class="d-block align-items-center">
+                <img src="../img/foto.jpg" alt="Perfil" class="rounded-circle me-2" width="120" height="120">
+                <h4 class="mb-0">Mariana Yumara Rojas Marengo</h4>
+            </div>
+        </div>
+        <ul class="nav flex-column mt-3">
+            <li class="nav-item"><a href="principal.html" class="nav-link text-white">🏠 Inicio</a></li>
+            <li class="nav-item"><a href="historia.html" class="nav-link text-white">📖 Nuestra Historia</a></li>
+            <li class="nav-item"><a href="galeria.html" class="nav-link text-white">🖼️ Galeria</a></li>
+            <li class="nav-item"><a href="cartas.html" class="nav-link text-white">💌 Cartas</a></li>
+        </ul>
+    </div>
+
+    <div id="content">
+        <div id="cartas-container">
+            <h1>💌 Una Fecha que Nos Une 💌</h1>
+            <p>Ingresa una fecha especial y descubre el recuerdo hermoso y un mensaje secreto que guardamos juntos. 💖✨</p>
+            <input type="date" id="fecha-input" class="form-control w-50 mx-auto my-3">
+            <button id="verificar-btn" class="btn btn-primary">Verificar</button>
+            <div id="mensaje-secreto" class="mt-4 "></div>
+            <p class="mensaje-error" id="mensaje-error"></p>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#toggleSidebar').click(function (event) {
+                event.stopPropagation();
+                $('#sidebar').toggleClass('active');
+                $('#toggleSidebar').toggle();
+            });
+
+            $(document).click(function (event) {
+                if (!$(event.target).closest('#sidebar, #toggleSidebar').length) {
+                    $('#sidebar').removeClass('active');
+                    $('#toggleSidebar').show();
+                }
+            });
+
+            // Generar corazones flotantes
+        function createHeart() {
+            const heart = $('<div class="heart">❤️</div>');
+            const randomX = Math.random() * $(window).width();
+            heart.css({ left: randomX + 'px', bottom: '-20px' });
+            $('body').append(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        setInterval(createHeart, 500);
+        });
+
+        // Diccionario con fechas y mensajes personalizados
+        const fechasEspeciales = {
+            "2025-01-04": `
+                <h3>🎉🌟 Una Noche Inolvidable en Marabamba 🕺💃</h3>
+                <p>El 4 de enero siempre será una fecha especial, porque ese día todo fue inesperado pero perfecto ✨. Fui a buscarte a tu trabajo porque, como siempre, se te habían acabado las megas 📵😂. Cuando te vi, sin pensarlo dos veces, te propuse ir a Marabamba y tu sonrisa fue suficiente respuesta: ¡Vamos! 🤩</p>
+                <p>Al llegar, te presenté a mi familia como "mi amiga" 🙃, porque sabía que si decía algo más empezarían las bromas interminables 🤭🤣. Pero, la verdad, desde el primer momento todo se sintió especial 💖. Bailamos sin parar 🕺💃, reímos hasta que nos dolió el estómago 😂 y disfrutamos como si no existiera el mañana 🌟. Yo, como era de esperarse, tomé demasiado 🍻🤣, pero aún así intenté que tú no lo hicieras tanto (aunque sé que igual te divertiste 😏🔥).</p>
+                <p>Aquella noche fue más que una simple fiesta 🎊, fue un recuerdo que quedó grabado para siempre 🫶. Entre la música 🎶, las luces ✨ y las risas 😆, hubo momentos que, aunque parecían simples, lo significaron todo 💫. Estar contigo hizo que la noche fuera inolvidable 💕, y si pudiera repetirla mil veces, lo haría sin dudarlo 😍.</p>
+                <p>Gracias por hacer cada momento único. Porque desde ese día, supe que cualquier lugar es especial si estás a mi lado. 💖</p>
+                <p><strong>Con todo mi cariño,<br>[Yomer] ❤️</strong></p>
+            `,
+            "2025-01-09": `
+                <h3>🎂✨ El 9 de enero... 🎊💖</h3>
+                <p>El 9 de enero marcó otro año más de tu vida, un día en el que merecías sonrisas, abrazos y momentos inolvidables 🎈🥳. Me habría encantado estar ahí para celebrar contigo, pero aunque no pude, quiero que sepas que siempre estuve pensando en ti 💕.</p>
+                <p>Eres una persona increíble, llena de sueños y determinación, y sé que este nuevo año en tu vida traerá muchas más oportunidades y logros 📚🌟. Te has esforzado tanto en tus estudios, dando lo mejor de ti para convertirte en la gran maestra que sé que serás 🍎✨.
+                </p>
+                <p>Espero que hayas disfrutado tu día rodeada de amor, risas y personas que te quieren tanto como yo. Y aunque no estuve físicamente, pronto tendremos nuestro propio momento para celebrar como se debe 🎉🥂. ¡Feliz vida, que cada día sigas brillando como siempre!
+                </p>
+                <p><strong>Con mucho cariño, <br/> [ Yomer] ❤️ </strong></p>
+            `,
+            "2025-02-04": `
+                <h3>💌 Un Día Inolvidable a Tu Lado ❤️</h3>
+                <p>El 9 de enero no fue solo un día más, fue uno de esos momentos que, sin darnos cuenta, se convierten en recuerdos inolvidables ✨. No hizo falta un gran plan ni algo espectacular, solo estar juntos, reír y dejarnos llevar por la emoción del momento 😆.</p>
+                <p>Hubo risas nerviosas 😂, decisiones repentinas, pequeños retos que quizá no superamos 🌉😅, pero que nos dejaron historias para contar una y otra vez. Hubo miradas cómplices 👀💞, instantes de calma en los que el mundo pareció detenerse 🌄, y esa sensación de saber que, sin importar el lugar o la situación, cada momento contigo es especial 💖.
+                </p>
+                <p>Porque la magia no está en lo que hicimos, sino en cómo lo vivimos ✨. En cada risa que compartimos 😂, en cada broma sin sentido 🤭, en esos segundos en los que el miedo se mezcló con la adrenalina 😆 y terminamos riendo de nosotros mismos 🤣.
+                </p>
+                <p>No sé cuántas aventuras más nos esperan 🚀, pero si algo tengo claro es que quiero seguir acumulando <strong>días así contigo 💑</strong>. Porque contigo, lo simple se vuelve inolvidable 🥰, y cada instante es un recuerdo que vale la pena atesorar 💕.
+                </p>
+                
+                <p><strong>Con mucho cariño. <br/> [Te quiero] 💖</strong></p>
+            `,
+            
+        };
+
+        document.getElementById("verificar-btn").addEventListener("click", function() {
+            const fechaIngresada = document.getElementById("fecha-input").value;
+            const mensaje = fechasEspeciales[fechaIngresada];
+
+            const mensajeSecreto = document.getElementById("mensaje-secreto");
+            mensajeSecreto.innerHTML = ""; // Limpiar el contenido anterior
+
+            if (mensaje) {
+                mensajeSecreto.innerHTML = `
+                    <div class="carta">
+                        <div class="sobre" onclick="abrirCarta(this)">
+                            <p>📩 Haz clic para abrir</p>
+                        </div>
+                        <div class="contenido-carta" style="display: none;">
+                            <p>${mensaje}</p>
+                        </div>
+                    </div>
+                `;
+            } else {
+                alert("Oops! Esa no es la fecha correcta. Inténtalo de nuevo. 💕");
+            }
+        });
+
+        function abrirCarta(elemento) {
+            elemento.style.display = "none"; // Ocultar sobre
+            elemento.nextElementSibling.style.display = "block"; // Mostrar contenido de la carta
+        }
+    </script>
+
+
+    <script src="datos.js"></script>
+
+    
+    <audio id="backgroundMusic" autoplay loop style="display:none;">
+    <source src="../img/ytapi.org - Heredero - Coqueta.mp3" type="audio/mpeg">
+    Tu navegador no soporta el audio HTML5.
+
+</body>
+</html>
